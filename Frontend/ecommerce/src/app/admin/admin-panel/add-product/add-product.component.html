@@ -1,0 +1,12 @@
+<div class="add-product-form">
+    <h2>Add New Product</h2>
+    <form (submit)="onSubmit()">
+      <label>Title: <input [(ngModel)]="productData.name" required /></label>
+      <label>Price: <input [(ngModel)]="productData.price" required /></label>
+      <label>Description: <textarea [(ngModel)]="productData.description"></textarea></label>
+      <label>Stock: <input [(ngModel)]="productData.stock" /></label>
+      <label>Image: <input type="file" (change)="onFileSelected($event)" /></label>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,27 @@
+<div class="admin-panel">
+
+  
+    <main class="main-content">
+      <header class="top-bar">
+        <button class="btn btn-primary" (click)="navigateToAddProduct()">Add New Product</button>
+        <button class="btn btn-logout" (click)="logout()">Logout</button>
+      </header>
+  
+      <div class="product-grid">
+        <div *ngFor="let product of products" class="product-card">
+          <img
+            class="card-img-top mx-auto"
+            src="{{'assets' + product.images[0].image}}"
+          />
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-price">₹{{ product.price}}</p>
+          <div class="product-actions">
+            <button class="btn btn-edit" (click)="editProduct(product.id)">Edit</button>
+            <button class="btn btn-delete" (click)="deleteProduct(product.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  

@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 
-app.use('/api/v1/',productRoutes);
+app.use('/api/v2/',productRoutes);
 app.use('/api/v1/',orderRoutes);
 app.use('/api/v1/',categoryRoutes);
 app.use('/api/v1/',authRoutes);

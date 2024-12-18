@@ -13,10 +13,10 @@ const app = express();
 app.use(express.json());
 
 
-app.use(productRoutes);
-app.use(orderRoutes);
-app.use(categoryRoutes);
-app.use(authRoutes);
+app.use('/api/v2/',productRoutes);
+app.use('/api/v1/',orderRoutes);
+app.use('/api/v1/',categoryRoutes);
+app.use('/api/v1/',authRoutes);
 // app.use(adminRoutes);
 
 

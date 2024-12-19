@@ -36,14 +36,15 @@ exports.getProductById = async (req, res) => {
 
 exports.addProduct = async (req, res) => {
     try {
-        const { name, price, description, rating, category, seller, stock, review } = req.body;
+        const { name, price, description, ratings, images, category, seller, stock, review } = req.body;
 
         const newProduct = await prisma.product.create({
             data: {
                 name,
                 price,
                 description,
-                rating,
+                ratings,
+                images,
                 category: category.toUpperCase(),
                 seller,
                 stock,
@@ -60,7 +61,7 @@ exports.addProduct = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
     const { id } = req.params; 
-    const { name, price, description, rating, category, seller, stock, review } = req.body;
+    const { name, price, description, ratings, images,category, seller, stock, review } = req.body;
   
     try {
       const updatedProduct = await prisma.product.update({
@@ -69,7 +70,8 @@ exports.updateProduct = async (req, res) => {
           name,
           price,
           description,
-          rating,
+          ratings,
+          images,
           category,
           seller,
           stock,
@@ -107,23 +109,4 @@ exports.updateProduct = async (req, res) => {
   };
 
 
-  // exports.getProductsByCategory = async (req, res) => {
-  //   try {
-  //     const { category } = req.params;
   
-  //     const products = await prisma.product.findMany({
-  //       where: {
-  //         category: category.toUpperCase(), 
-  //       },
-  //     });
-  
-  //     if (products.length === 0) {
-  //       return res.status(404).json({ message: `No products found in ${category} category.` });
-  //     }
-  
-  //     res.status(200).json(products);
-  //   } catch (error) {
-  //     console.error(error);
-  //     res.status(500).json({ error: 'Failed to fetch products by category' });
-  //   }
-  // };

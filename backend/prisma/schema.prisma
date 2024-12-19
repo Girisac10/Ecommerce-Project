@@ -1,57 +1,4 @@
 
-// generator client {
-//   provider = "prisma-client-js"
-// }
-
-// datasource db {
-//   provider = "mysql"
-//   url      = env("DATABASE_URL")
-// }
-
-// enum CategoryItem {
-//   MOBILE_PHONE
-//   LAPTOP
-//   WATCH
-//   HEADPHONE
-// }
-
-// model User {
-//   id          Int      @id @default(autoincrement())
-//   username    String   
-//   email       String   @unique
-//   phoneNumber String
-//   country     String
-//   location    String
-//   password    String
-//   dateOfBirth DateTime
-//   createdAt   DateTime @default(now())
-//   updatedAt   DateTime @updatedAt @default(now())
-// }
-
-
-// model Product {
-//   id          Int      @id @default(autoincrement())
-//   name        String
-//   price       Float
-//   description String
-//   rating      Float?
-//   category    CategoryItem
-//   seller      String
-//   stock       Int      @default(0)
-//   review      String?
-//   createdAt   DateTime @default(now())
-//   updatedAt   DateTime @updatedAt @default(now())
-// }
-
-
-// model Order {
-//   id         Int      @id @default(autoincrement())
-//   cartItems  String   
-//   amount     Float
-//   status     String   @default("Pending")
-//   createdAt  DateTime @default(now())
-//   updatedAt   DateTime @updatedAt @default(now())
-// }
 
 
 generator client {
@@ -83,24 +30,27 @@ model User {
   updatedAt   DateTime @updatedAt @default(now())
 }
 
-model Product {
-  id          Int      @id @default(autoincrement())
-  name        String
-  price       Float
-  description String
-  rating      Float?
-  category    CategoryItem
-  seller      String
-  stock       Int      @default(0)
-  review      String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt @default(now())
-}
 
+
+
+model Product {
+  id           Int      @id @default(autoincrement())
+  name         String
+  price        String
+  description  String
+  ratings      String
+  category     String
+  seller       String
+  stock        Int      @default(0)
+  numOfReviews String?
+  images       String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt @default(now())
+}
 model Order {
   id         Int      @id @default(autoincrement())
-  cartItems  String   
-  amount     Float
+  cartItems  Json   
+  amount     String
   status     String   @default("Pending")
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt @default(now())
